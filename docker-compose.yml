@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    ports:
+      - "5581:5432"
+    environment:
+      POSTGRES_DB: picpay
+      POSTGRES_USER: picpay
+      POSTGRES_PASSWORD: 123456789
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
